@@ -11,9 +11,7 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-ppt_buffer = io.BytesIO()
-prs.save(ppt_buffer)
-ppt_buffer.seek(0)
+
 
 # Width and height for the image
 img_width = Inches(8)
@@ -384,6 +382,9 @@ if all_data:
 
 if st.button("Generate Shift Report"):
     generate_shift_report()
+    ppt_buffer = io.BytesIO()
+    prs.save(ppt_buffer)
+    ppt_buffer.seek(0)
     st.download_button(
         label="Download PowerPoint",
         data=ppt_buffer,
@@ -393,6 +394,7 @@ if st.button("Generate Shift Report"):
 
 #if st.button("Upload Files"):
 #    sumbit_shift_report()
+
 
 
 
