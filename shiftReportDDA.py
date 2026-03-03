@@ -151,6 +151,10 @@ def plot_data(data, selected_sheets, x_range=(250, 400), y_range=(0, 2)):
             ax.plot(x_std, y_worstfeed, label="Worst Jan Feed Curve", linestyle=":", color="blue")
         else:
             df = data[sheet]
+            st.write("Current working directory:", os.getcwd())
+            st.write("Trying to open:", excel_filename_all)
+            st.write("Exists?", os.path.exists(excel_filename_all))
+            st.write("Files in cwd:", os.listdir())
             df_params = pd.read_excel(excel_filename_all)
             x, y = baseline_correct(df)
             y_all.append(y)
@@ -383,4 +387,5 @@ if st.button("Generate Shift Report"):
 
 #if st.button("Upload Files"):
 #    sumbit_shift_report()
+
 
