@@ -351,6 +351,7 @@ def generate_shift_report():
     ppt_path = f"DDA_QA_{formatted_date}_{shift_code}_Report.pptx"
     prs.save(ppt_path)
     st.success(f"Shift Report saved as {ppt_path}")
+    return prs
 
 #def sumbit_shift_report():
     #print("test")
@@ -381,7 +382,7 @@ if all_data:
         save_graph(fig, graph_title)
 
 if st.button("Generate Shift Report"):
-    generate_shift_report()
+    prs = generate_shift_report()
     ppt_buffer = io.BytesIO()
     prs.save(ppt_buffer)
     ppt_buffer.seek(0)
@@ -394,6 +395,7 @@ if st.button("Generate Shift Report"):
 
 #if st.button("Upload Files"):
 #    sumbit_shift_report()
+
 
 
 
